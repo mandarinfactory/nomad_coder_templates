@@ -46,6 +46,7 @@ profileOfMe.name = "tigerlily";
 profileOfMe.location = "Bucheon";
 console.log(profileOfMe);
 console.log(profileOfMe.location);
+console.log("Hello my name is " + profileOfMe.name + ". and I'm live in " + profileOfMe.location);
 // object는 직접 내부 data를 변경하거나 다른 data를 추가할 수 있다. //
 
 
