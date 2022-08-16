@@ -40,12 +40,10 @@ const profileOfMe = {
 };
 // object는 시작을 중괄호{}로 해야하고 항상 마지막에 ,를 붙인다. //
 console.log(profileOfMe.name);
-console.log(profileOfMe.height);
 console.log(profileOfMe.sex);
 profileOfMe.name = "tigerlily";
 profileOfMe.location = "Bucheon";
 console.log(profileOfMe);
-console.log(profileOfMe.location);
 console.log("Hello my name is " + profileOfMe.name + ". and I'm live in " + profileOfMe.location);
 // object는 직접 내부 data를 변경하거나 다른 data를 추가할 수 있다. //
 
@@ -55,11 +53,33 @@ function toBuyToday (goodsInMarket) {
     console.log(goodsInMarket);
 };
 toBuyToday("orange");
-function plus (firstNumber, NextNumber) {
-    console.log(firstNumber + NextNumber);
+function plus (pizza, potato) {
+    console.log(pizza + potato);
 };
 plus(78, 124);
 // function은 계속 반복해서 사용할 수 있는 코드조각이다. --> 어떤 코드를 캡슐화해서 실행을 여러번 할 수 있다.
-// ( )괄호는 data내 어떤걸 가져올지 기록하는 곳 --> 어떤걸 기록하든 상관이 없다.//
-// 다시말해, goodsInMarket이나 first/NextNumber자리는 바뀌어도 된다. //
+// ( )괄호는 data내 어떤걸 가져올지 기록하는 곳, 실행이 이루어질 곳이다. 꼭 써야함! //
+// goodsInMarket이나 pizza/potato 자리는 바뀌어도 된다. --> placeholder이므로 큰 문제 없음!//
 // { }중괄호는 data 자리 //
+
+
+// RECAP - ASSIGNMENT //
+
+const calculation = {
+    plus : function(a, b){
+        console.log(a + b);
+    },
+    minus : function(a, b){
+        console.log(a - b);
+    },
+    divide : function(a, b){
+        console.log(a / b);
+    },
+    multiple : function(a, b){
+        console.log(a * b);
+    },
+};
+calculation.plus(64, 143);
+calculation.minus(900, 873);
+calculation.divide(7132, 159);
+calculation.multiple(71, 121);
