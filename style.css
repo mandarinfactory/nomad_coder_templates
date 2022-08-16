@@ -1,3 +1,7 @@
 body {
-    background-color: darkseagreen;
+    font-family: 'Ubuntu', sans-serif;
+    background-color: darkslateblue;
+    color: white;
+    font-size: 25px;
+    font-weight: 700;
 }
