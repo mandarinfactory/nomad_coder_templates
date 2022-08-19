@@ -67,19 +67,35 @@ plus(78, 124);
 
 const calculation = {
     plus : function(a, b){
-        console.log(a + b);
+        return a + b;
     },
     minus : function(a, b){
-        console.log(a - b);
+        return a - b;
     },
     divide : function(a, b){
-        console.log(a / b);
+        return a / b;
     },
     multiple : function(a, b){
-        console.log(a * b);
+        return a * b;
     },
 };
-calculation.plus(64, 143);
-calculation.minus(900, 873);
-calculation.divide(7132, 159);
-calculation.multiple(71, 121);
+const plusResult = calculation.plus(6, 130);
+const minusResult = calculation.minus(plusResult, 107);
+const divideResult = calculation.divide(52, minusResult);
+const multipleResult = calculation.multiple(divideResult, plusResult);
+// 이렇게 return을 쓰면 console에서의 값을 자유자재로 쓸 수 있다. (전에는 funciton내부에 있어서 출력값만 봤어야함.) //
+// console.log를 따로 쓰지 않고 콘솔창에 var값을 출력해도 값은 그대로 나온다. //
+
+
+// 5. return //
+const age = 109;
+// return은 function내부에 console.log를 넣지 않고 외부에서(screen그외) 볼 수 있도록 해준다. //
+function calculationKrAge(ageOfForeigner){
+    return ageOfForeigner + 2;
+}
+// ageOfForeigner = age = 109, return 109 + 2 = 111 = calculationKrAge //
+// return을 함으로써, function을 호출하는 코드가 111이 된다. = calculationKrAge //
+const krAge = calculationKrAge(age);
+// age = 109, return으로 인해 calculationKrAge = 111 = krAge //
+console.log(krAge);
+// krAge = 111 //
