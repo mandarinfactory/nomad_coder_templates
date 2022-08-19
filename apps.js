@@ -98,6 +98,15 @@ const krAge = calculationKrAge(age);
 // age = 109, return으로 인해 calculationKrAge = 111 = krAge //
 console.log(krAge);
 // krAge = 111 //
+// RECAP - return은 어려운 부분!!! //
+const calAdd = {add:function(first, next)
+    {return first + next;},
+};
+// 이때 console.log(first + next)로 하면 값은 콘솔에 출력되지만, return이 없으므로 calAddResult로는 값이 나오지 않는다. //
+// 하지만, return first + next로 하면 콘솔창에는 안나오지만, calAddResult로 하면 값이 나온다. = 7 + 89(calAdd.add) = 96 //
+const calAddResult = calAdd.add(7, 89);
+
+
 
 
 // 6. conditonals //
