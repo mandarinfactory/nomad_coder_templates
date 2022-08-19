@@ -83,7 +83,7 @@ const minusResult = calculation.minus(plusResult, 107);
 const divideResult = calculation.divide(52, minusResult);
 const multipleResult = calculation.multiple(divideResult, plusResult);
 // 이렇게 return을 쓰면 console에서의 값을 자유자재로 쓸 수 있다. (전에는 funciton내부에 있어서 출력값만 봤어야함.) //
-// console.log를 따로 쓰지 않고 콘솔창에 var값을 출력해도 값은 그대로 나온다. //
+// console.log를 따로 쓰지 않고 콘솔창에 var(plusResult등)값을 출력해도 값은 그대로 나온다. //
 
 
 // 5. return //
@@ -100,13 +100,11 @@ console.log(krAge);
 // krAge = 111 //
 // RECAP - return은 어려운 부분!!! //
 const calAdd = {add:function(first, next)
-    {return first + next;},
+{return first + next;},
 };
+const calAddResult = calAdd.add(7, 89);
 // 이때 console.log(first + next)로 하면 값은 콘솔에 출력되지만, return이 없으므로 calAddResult로는 값이 나오지 않는다. //
 // 하지만, return first + next로 하면 콘솔창에는 안나오지만, calAddResult로 하면 값이 나온다. = 7 + 89(calAdd.add) = 96 //
-const calAddResult = calAdd.add(7, 89);
-
-
 
 
 // 6. conditonals //
