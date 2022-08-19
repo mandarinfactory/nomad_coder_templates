@@ -63,8 +63,7 @@ plus(78, 124);
 // { }중괄호는 data 자리 //
 
 
-// RECAP - ASSIGNMENT //
-
+// RECAP - ASSIGNMENT(revised to console.log/alert --> return) //
 const calculation = {
     plus : function(a, b){
         return a + b;
@@ -99,3 +98,13 @@ const krAge = calculationKrAge(age);
 // age = 109, return으로 인해 calculationKrAge = 111 = krAge //
 console.log(krAge);
 // krAge = 111 //
+
+
+// 6. conditonals //
+// true/false를 판별하게 해주는 명령어이다. //
+const youngAge = parseInt(prompt("How old are you?"));
+// prompt는 사용자에게 "string"팝업을 띄우게 함. --> 응답할때까지 JS를 멈추게 하고, 현재는 많이 쓰지 않는다. 스타일이 별로이고 CSS로 수정안됨. //
+console.log(typeof "150", typeof 150);
+console.log(youngAge);
+// typeof는 string이나 number type을 판별해서 출력해준다. //
+// parseInt는 string을 number로 변환시켜주는 function 이다. --> string에 문자로 쓰면 NaN으로 출력된다. //
