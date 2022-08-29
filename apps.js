@@ -1,4 +1,4 @@
-// FOR PRACTICING THE JAVA-SCRIPT //
+// FOR PRACTICING THE JAVA-SCRIPT --> by NOMADCODERS, edited mandarinfactory //
 
 
 // 1. basic //
@@ -144,5 +144,14 @@ title.addEventListener("click", handleTitleClick);
 // "click" --> event, 찐으로 click, 2번째 인수로 function을 기록한다. //
 // 2번쨰 인수인 function에 바로 ()괄호를 따로 치면 바로 인식되므로 따로 아래에 빼서 기록하게 한다. //
 handleTitleClick();
-// 여기에 따로 function실행하게 하게 해서 JS가 aEL로 읽은 후, fun.실행하게 해준다. //
+// 여기에 따로 function실행하게 하게 해서 JS가 addEventListener로 읽은 후, function을 실행하게 해준다. //
 // 브라우저에서 mandarin을 click하면 색상이 white --> firebrick으로 변경된다. //
+function handleMouseEnter (){
+   title.innerText = "mandarin is tigerlily.";
+}
+function handleMouseLeave (){
+    title.innerText = "tigerlily is mandarinfactory.";
+}
+title.addEventListener("mouseenter", handleMouseEnter);
+title.addEventListener("mouseleave", handleMouseLeave);
+// 보다시피 따로 fucntion()꼴로 직접 실행하지 않더라도 JS로 충분히 실행할 수 있다. //
