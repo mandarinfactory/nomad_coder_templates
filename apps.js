@@ -115,3 +115,4 @@ console.log(typeof "150", typeof 150);
 console.log(youngAge);
 // typeof는 string이나 number type을 판별해서 출력해준다. //
 // parseInt는 string을 number로 변환시켜주는 function 이다. --> string에 문자로 쓰면 NaN으로 출력된다. //
+ 
