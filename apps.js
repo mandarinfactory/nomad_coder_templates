@@ -117,7 +117,7 @@ console.log(youngAge);
 // parseInt는 string을 number로 변환시켜주는 function 이다. --> string에 문자로 쓰면 NaN으로 출력된다. //
 
 
-// 7. HTML -- JS //
+// 7. HTML && JS //
 const subtitle = document.getElementById("subtitle");
 // function으로 HTML에서 id(#)를 통해 element를 찾아준다. //
 const hellos = document.getElementsByClassName("hello");
@@ -152,6 +152,30 @@ function handleMouseEnter (){
 function handleMouseLeave (){
     title.innerText = "tigerlily is mandarinfactory.";
 }
+function handleWindowResize (){
+    document.body.style.backgroundColor = "orange";
+}
+// window element는 따라서 body나 head 등 큰곳에 쓰인다. 내부 div나 form에는 안쓰임. //
+function handleWindowCopy (){
+    alert("copier!+_+!")
+}
+function handleWindowOffline (){
+    alert("no signal. please call to NASA or 51 AREA.")
+}
+function handleWindowOnline (){
+    alert("You are contacting with Alpha-Centarurians.")
+}
 title.addEventListener("mouseenter", handleMouseEnter);
-title.addEventListener("mouseleave", handleMouseLeave);
 // 보다시피 따로 fucntion()꼴로 직접 실행하지 않더라도 JS로 충분히 실행할 수 있다. //
+title.onmouseleave =  handleMouseLeave;
+// addEventListener 또는 직접 event 자체를 쓸수도 있다. on- //
+// 단, addEventListener는 후에 .removeEventListener로 지울 수 있어서 편하다. //
+window.addEventListener("resize", handleWindowResize);
+// title은 HTML element였고(const title =...) window는 장소, 브라우저에 관한 element이다. //
+// 따라서 resize라는 event는 말그대로 브라우저를 resize 해주면 function이 일어나게 된다. //
+window.addEventListener("copy", handleWindowCopy);
+window.addEventListener("offline", handleWindowOffline);
+window.addEventListener("online", handleWindowOnline);
+
+
+// 8. else - if //
