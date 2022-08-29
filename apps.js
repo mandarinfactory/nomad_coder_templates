@@ -115,4 +115,17 @@ console.log(typeof "150", typeof 150);
 console.log(youngAge);
 // typeof는 string이나 number type을 판별해서 출력해준다. //
 // parseInt는 string을 number로 변환시켜주는 function 이다. --> string에 문자로 쓰면 NaN으로 출력된다. //
- 
+
+
+// 7. HTML -- JS //
+const subtitle = document.getElementById("subtitle");
+// function으로 HTML에서 id(#)를 통해 element를 찾아준다. //
+const hellos = document.getElementsByClassName("hello");
+// function으로 HTML에서 class(.)를 통해 element를 찾아준다. //
+// .getElementstagname --> tag(anchor,div,button)을 통해 알려준다. //
+// getElementsById/ClassName 둘다 떠로 명시해줄 필요는 없다. --> 하위element는 가져올수 없다. (querySelector사용해야함.) //
+const title = document.querySelector(".hello h1");
+// querySelector --> element를 CSS방식으로 검색할 수 있다. --> id(#), class(.)로 명시해줘야한다. //
+// 첫번째 element만 알려주므로 모든 element를 보려면 SelectorAll을 사용하면 된다. (array형태) //
+title.innerText = "Guten Morgen!"
+// innerText를 JS, HTML 둘다 표시하면 JS가 우선해서 표시된다. (어떤 element 변환시, JS가 우선한다.) //
