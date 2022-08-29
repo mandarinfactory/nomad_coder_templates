@@ -127,5 +127,22 @@ const hellos = document.getElementsByClassName("hello");
 const title = document.querySelector(".hello h1");
 // querySelector --> element를 CSS방식으로 검색할 수 있다. --> id(#), class(.)로 명시해줘야한다. //
 // 첫번째 element만 알려주므로 모든 element를 보려면 SelectorAll을 사용하면 된다. (array형태) //
-title.innerText = "Guten Morgen!"
+title.innerText = "mandarin!"
 // innerText를 JS, HTML 둘다 표시하면 JS가 우선해서 표시된다. (어떤 element 변환시, JS가 우선한다.) //
+const maintitle = document.querySelector(".hello:first-child h1");
+// querySelector를 이용해서 하위element도 가져올 수 있다. --> .hello(ClassName), first-child, h1(하위element) //
+console.log(maintitle);
+//maintitle --> mandarinfactory(HTML) --> 위에 title.innerText가 JS로 되어있으므로 우선한다. --> mandarin이 출력된다. //
+function handleTitleClick (){
+    title.style.color = "firebrick";
+}
+// function 이용해서 addEventListener에 2번째인수 추가 //
+// JS에서 직접 HTML-CSS 변경가능하다. (style.color) //
+// 만약 여기서 console.log("string");을 한다면, console창에 string이 뜨고 누를때마다 횟수가 옆에 뜬다. //
+title.addEventListener("click", handleTitleClick);
+// addEventListener --> 지정한 유형의 event를 대사잉 수신할때마다 호출할 함수를 설정해준다. //
+// "click" --> event, 찐으로 click, 2번째 인수로 function을 기록한다. //
+// 2번쨰 인수인 function에 바로 ()괄호를 따로 치면 바로 인식되므로 따로 아래에 빼서 기록하게 한다. //
+handleTitleClick();
+// 여기에 따로 function실행하게 하게 해서 JS가 aEL로 읽은 후, fun.실행하게 해준다. //
+// 브라우저에서 mandarin을 click하면 색상이 white --> firebrick으로 변경된다. //
