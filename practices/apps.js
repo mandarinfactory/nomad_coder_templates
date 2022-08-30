@@ -193,14 +193,10 @@ function handleBackgroundColorClick (){
 // elements를 만들어서 따로 currentColor, newColor로 정리해서 코드를 깔끔하게 하는게 좋다. //
 title.addEventListener("click", handleBackgroundColorClick);
 function activeMainHeader (){
-    const currentTitle = title.classList
-    const clickedClass = "clicked";
-    if(currentTitle.contains(clickedClass)) {
-        currentTitle.remove(clickedClass);
-    } else {
-        currentTitle.add(clickedClass);
-    }
+    title.classList.toggle("clicked");
 }
 // classList는 class들의 목록으로 작업할수 있게끔 허용해준다. --> element들의 class 내용물 조작을 허용해줌. //
+// toggle function은 className이 존재하는지 확인해준다. (else-if의 역할!) --> className이 존재하면 삭제, 없으면 생성해준다. //
+// "clicked"가 있으면 toggle은 classlist에서 삭제하고, 없다면 classList에 추가해준다. --> switch같은 역할을 한다. //
 title.addEventListener("click", activeMainHeader);
 // CSS는 style용, JS는 animation용으로 쓰는게 좋으므로, style에서 적어서 JS와 연결해 놓는것! //
