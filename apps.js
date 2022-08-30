@@ -127,12 +127,11 @@ const hellos = document.getElementsByClassName("hello");
 const title = document.querySelector(".hello h1");
 // querySelector --> element를 CSS방식으로 검색할 수 있다. --> id(#), class(.)로 명시해줘야한다. //
 // 첫번째 element만 알려주므로 모든 element를 보려면 SelectorAll을 사용하면 된다. (array형태) //
-title.innerText = "mandarin!"
 // innerText를 JS, HTML 둘다 표시하면 JS가 우선해서 표시된다. (어떤 element 변환시, JS가 우선한다.) //
 const maintitle = document.querySelector(".hello:first-child h1");
 // querySelector를 이용해서 하위element도 가져올 수 있다. --> .hello(ClassName), first-child, h1(하위element) //
 console.log(maintitle);
-//maintitle --> mandarinfactory(HTML) --> 위에 title.innerText가 JS로 되어있으므로 우선한다. --> mandarin이 출력된다. //
+//maintitle --> mandarinfactory(HTML) //
 function handleTitleClick (){
     title.style.color = "firebrick";
 }
@@ -167,8 +166,10 @@ function handleWindowOnline (){
 }
 title.addEventListener("mouseenter", handleMouseEnter);
 // 보다시피 따로 fucntion()꼴로 직접 실행하지 않더라도 JS로 충분히 실행할 수 있다. //
-title.onmouseleave =  handleMouseLeave;
+title.addEventListener("mouseleave", handleMouseLeave);
 // addEventListener 또는 직접 event 자체를 쓸수도 있다. on- //
+title.removeEventListener("mouseenter", handleMouseEnter);
+title.removeEventListener("mouseleave", handleMouseLeave);
 // 단, addEventListener는 후에 .removeEventListener로 지울 수 있어서 편하다. //
 window.addEventListener("resize", handleWindowResize);
 // title은 HTML element였고(const title =...) window는 장소, 브라우저에 관한 element이다. //
@@ -178,4 +179,28 @@ window.addEventListener("offline", handleWindowOffline);
 window.addEventListener("online", handleWindowOnline);
 
 
-// 8. else - if //
+// 8. CSS && JS //
+function handleBackgroundColorClick (){
+    const currentColor = title.style.backgroundColor;
+    let newColor;
+    if(currentColor === "orange"){
+        newColor = "orangered";
+    } else {
+        newColor = "orange";
+    }
+    title.style.backgroundColor = newColor;
+}
+// elements를 만들어서 따로 currentColor, newColor로 정리해서 코드를 깔끔하게 하는게 좋다. //
+title.addEventListener("click", handleBackgroundColorClick);
+function activeMainHeader (){
+    const currentTitle = title.classList
+    const clickedClass = "clicked";
+    if(currentTitle.contains(clickedClass)) {
+        currentTitle.remove(clickedClass);
+    } else {
+        currentTitle.add(clickedClass);
+    }
+}
+// classList는 class들의 목록으로 작업할수 있게끔 허용해준다. --> element들의 class 내용물 조작을 허용해줌. //
+title.addEventListener("click", activeMainHeader);
+// CSS는 style용, JS는 animation용으로 쓰는게 좋으므로, style에서 적어서 JS와 연결해 놓는것! //
