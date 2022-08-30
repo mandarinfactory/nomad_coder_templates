@@ -6,15 +6,16 @@ const loginInput = loginForm.querySelector("input");
 // === 좀더 정밀 조사가 가능하다. //
 const identity = document.querySelector("#identity");
 const HIDDEN_CLASSNAME = "hidden";
+const USERNAME_KEY = "username";
 // 일반적으로 string으로만 되어있는 변수는 대문자로 표기하곤 한다. //
+// const로 element로 묶어서 자주 쓰는 변수는 오타를 줄이도록 한다. //
 function onLoginSubmit(event) {
     event.preventDefault();
     loginForm.classList.add(HIDDEN_CLASSNAME);
     const username = loginInput.value;
-    identity.innerText = `Hello ${username}`;
-    // `Hello ${username}`;은 원래 "Hello " + username;꼴인데 백틱(``)으로 바꾼거다. //
-    identity.classList.remove(HIDDEN_CLASSNAME);
-    // classList에 아직 hidden이 있고, CSS.display.none이 되어있으므로, remove function을 통해 .hidden을 지워준다. //
+    localStorage.setItem(USERNAME_KEY, username);
+    // browser 내부 API인 localStorage에 username을 submit하면 바로 저장하게 해준다. //
+    searchIdentity(username);
 };
 loginForm.addEventListener("submit",onLoginSubmit);
 // addEventListener를 쓸때에는 function인 onloginSubmit을 바로 실행시키는건 아니므로 -Submit()식으로 기록하지 않는다. //
@@ -24,3 +25,17 @@ loginForm.addEventListener("submit",onLoginSubmit);
 // addEventListener로 submit을 통해 onLoginSubmit function이 실행되면 첫번째 argument인 event가 실행된다. //
 // event내에 있는 preventDefault가 submit후 자동으로 browser가 새로고침되는걸 막아준다. //
 // console.log를 통해 loginInput에 있는 value(innerText)가 출력된다. //
+function searchIdentity(username) {
+    identity.innerText = `Hello ${username}`;
+    identity.classList.remove(HIDDEN_CLASSNAME);
+}
+// `Hello ${username}`;은 원래 "Hello " + username;꼴인데 백틱(``)으로 바꾼거다. //
+// classList에 아직 hidden이 있고, CSS.display.none이 되어있으므로, remove function을 통해 .hidden을 지워준다. //
+const savedUsername = localStorage.getItem(USERNAME_KEY);
+if(savedUsername === null){
+    loginForm.classList.remove(HIDDEN_CLASSNAME);
+    loginForm.addEventListener("submit",onLoginSubmit);
+} else {
+    searchIdentity(savedUsername);
+};
+// 4.7 RECAP //
