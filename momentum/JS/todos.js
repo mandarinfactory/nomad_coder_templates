@@ -2,11 +2,20 @@ const todoForm = document.querySelector("#todo-form");
 const todoWrittenInput = todoForm.querySelector("input"); 
 const todoList = document.querySelector("#todo-list");
 
+function deleteTodoButton(event) {
+    const deleteList = event.target.parentElement;
+    deleteList.remove();
+}
+
 function paintTodo(newTodo) {
     const list = document.createElement("li");
     const span = document.createElement("span");
-    list.appendChild(span);
     span.innerText = newTodo;
+    const button = document.createElement("button")
+    button.innerText = "X";
+    button.addEventListener("click", deleteTodoButton);
+    list.appendChild(span);
+    list.appendChild(button);
     todoList.appendChild(list);
 }
 // 1. 위에서 가져온 newTodo(이미 user가 submit해서 todoForm에 입력된값이 저장된 element)를 저장하는것. //
