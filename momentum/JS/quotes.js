@@ -42,11 +42,15 @@ const quotes = [
     
 ]
 const quote = document.querySelector("#quotes span:first-child");
+
 const author = document.querySelector("#quotes span:last-child");
+
 const todaysQuotes = quotes[Math.floor(Math.random() * quotes.length)];
-// Math.random은 무작위 번호를 console에 출력해 준다. Math.random(); = 4.1324145, 0.023895 등등 //
+// Math.random은 무작위 번호를 console에 출력해 준다. Math.random(); = 0.1324145, 0.023895 등등 //
+// 단, Math.random은 0-1내에 있는 숫자만 무작위로 출력해준다. //
 // round = 반올림, ceil = 올림, floor = 내림 //
 // array로 quotes를 늘릴때마다 계속 숫자를 바꿀 필요 없이 바로 quotes.length를 이용해서 편리하게 사용할 수 있다. //
+
 quote.innerText = todaysQuotes.quote;
 author.innerText = todaysQuotes.author;
 // 각각 HTML에 있는 span들을 quote, author로 인식시켜 innerText로 browser에 출력시킨다. //

@@ -14,6 +14,7 @@ function getClockTime() {
 // 다시 시,분,초 정리해서 element화 한 후 innerText에 묶어서 정리한다. //
 // element화 한 후 `${}`로 묶는다. --> ${}은 표현식 삽입으로 사이에 변수나 연산등을 삽입할 수 있게 되어있다. //
 // hours, minutes, secounds등을 다 date로 불러와서 clockation.innerText로 browser에 보이게 나타낸다. //
+
 getClockTime();
 // 아래 setInterval로 매1초마다 나오게 하지만, 첫1초는 delay있는걸 바로 function을 실행하게 함으로써 없애준다. //
 setInterval(getClockTime, 1000);
