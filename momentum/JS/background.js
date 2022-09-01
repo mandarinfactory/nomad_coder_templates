@@ -12,4 +12,5 @@ backgroundImage.src = `IMG/${randomImages}`;
 
 document.body.appendChild(backgroundImage);
 // appendChild는 현재 위치에서 새로운 위치로 이동시킨다고 보면 된다. //
-// 다시말해 backgroundImage를 body로 옮겨 browser로 출력시킨다고 보면 된다. //
+// 다시말해 backgroundImage를 body로 옮겨 browser로 출력(append)시킨다고 보면 된다. //
+// append는 맨뒤로, prepend는 맨위로 오게 해준다. //
