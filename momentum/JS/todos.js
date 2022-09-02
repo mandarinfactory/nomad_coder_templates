@@ -3,7 +3,7 @@ const todoWrittenInput = todoForm.querySelector("input");
 const todoList = document.querySelector("#todo-list");
 const TODOS_KEY = "todos";
 // localStorage에서 toDos를 저장할때 같이 저장되는 keyname! //
-const toDos = [];
+let toDos = [];
 
 function saveToDos() {
     localStorage.setItem(TODOS_KEY, JSON.stringify(toDos));
@@ -11,6 +11,7 @@ function saveToDos() {
 // toDos를 통해 newTodo를 array화 하게 한다. //
 // localStorage에 array되어있는 newtoDo(toDos)를 저장한다. --> 이때, JSON.Stringify를 통해 string화 하게 한다. //
 // localStorage에도 array된 상태로 저장되므로 하나하나 개별로 출력이 가능하게끔 한다. //
+
 function deleteTodoButton(event) {
     const list = event.target.parentElement;
     list.remove();
@@ -18,6 +19,7 @@ function deleteTodoButton(event) {
 // event.target은 해당 event가 지정되어서(target) parentElement로 해당값의 parent를 알려줌. //
 // 위 list와 아래 list는 서로 충돌하지 않는다. --> function이 하나 끝나게 되면 서로 영향을 받지 않는다. //
 // 지역변수(local Variable)은 {중괄호}로 나타내고, 한 지역내에서만 사용할 수 있는 변수이다. --> 그러한 변수는 그 지역내에서만 정의된다.(function같은) =/= 전역변수(global Variable) //
+
 function paintTodo(newTodo) {
     const list = document.createElement("li");
     const span = document.createElement("span");
@@ -34,6 +36,7 @@ function paintTodo(newTodo) {
 // 3. 만들어진 span innerText에 newTodo를 인식시킨다. //
 // 4. list(span)에 저장된 user의 submit값을 appendChild로 todoList에 append해서 browser에 보여준다. + list로 button을 append해준다. //
 // 5. createElement로 button 생성 후, button에 'X'표 설정하고 addEventListener로 click하면 deleteTodoButton function 활성화 하게 한다. //
+
 function handleToDoSubmit(event) {
     event.preventDefault();
     const newTodo = todoWrittenInput.value; 
@@ -56,6 +59,14 @@ todoForm.addEventListener("submit", handleToDoSubmit);
 const savedToDos = localStorage.getItem(TODOS_KEY);
 if(savedToDos !== null){
     const parsedToDos = JSON.parse(savedToDos);
-    console.log(parsedToDos);
-    parsedToDos.forEach((item) => console.log("this is the turn of", item));
+    toDos = parsedToDos;
+    parsedToDos.forEach(paintTodo);
 }
+// localStorage에 저장된 toDos를 browser에 저장하기 위한 코드이다. //
+// !==은 '~이 아닌' 따라서 savedToDos가 null이 아니면 savedToDos를 JSON.parse화 한다. --> JS가 Stringify보다 더 값들을 잘 이해할수 있는 arraye들로 만들어준다. //
+// forEach --> function실행시, 그 array에 있는 각각의 item들에 대해 각각 실행시켜주게 해준다. //
+// => 는 arrow function으로 쓰인다. //
+// console창에 forEach로 각각의 값들이 "this is the turn of 각각의값"으로 출력해준다. //
+// 이미 paintTodo에 newTodo들이 있으므로 forEach(paintTodo);로 정리가 가능하다. //
+// localStorage내에 있는 이전의 todo들은 default로 사라지므로, toDos를 const --> let으로 변경 후, //
+// toDos = parsedToDos로 지정해놓는다. 값이 추가되더라도 이전의 값들은 지워지지 않는다. //
