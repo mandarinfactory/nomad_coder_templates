@@ -22,8 +22,9 @@ function deleteTodoButton(event) {
 
 function paintTodo(newTodo) {
     const list = document.createElement("li");
+    list.id = newTodo.id;
     const span = document.createElement("span");
-    span.innerText = newTodo;
+    span.innerText = newTodo.text
     const button = document.createElement("button")
     button.innerText = "X";
     button.addEventListener("click", deleteTodoButton);
@@ -36,13 +37,18 @@ function paintTodo(newTodo) {
 // 3. 만들어진 span innerText에 newTodo를 인식시킨다. //
 // 4. list(span)에 저장된 user의 submit값을 appendChild로 todoList에 append해서 browser에 보여준다. + list로 button을 append해준다. //
 // 5. createElement로 button 생성 후, button에 'X'표 설정하고 addEventListener로 click하면 deleteTodoButton function 활성화 하게 한다. //
+// list뒤에 id를 붙여서 li옆에 id가 딸려오도록 한다. 또한, event로써의 newTodo(function paintTodo(newTodo))는 object이므로 따로 .text로 innerText를 구별해서 출력값을 나눈다. //
 
 function handleToDoSubmit(event) {
     event.preventDefault();
     const newTodo = todoWrittenInput.value; 
     todoWrittenInput.value = "";
-    toDos.push(newTodo);
-    paintTodo(newTodo);
+    const newTodoObject = {
+        text:newTodo,
+        id:Date.now(),
+    };
+    toDos.push(newTodoObject);
+    paintTodo(newTodoObject);
     saveToDos();
 };
 todoForm.addEventListener("submit", handleToDoSubmit);
@@ -55,6 +61,8 @@ todoForm.addEventListener("submit", handleToDoSubmit);
 // 6. todoWrittenInput이 후에 null이 되었다고 해서 newTodo까지 null이 되지 않는다. //
 // newTodo를 toDos array에 push 시킨다(element를 추가시킨다. 비슷한걸로 call, apply를 쓴다.) //
 // toDos에 저장시키고, paintTodo를 통해 browser에 출력시키고, 바로 saveToDos function을 실행시킨다(localStorage에 저장하기 위해서). //
+// newTodo가 text형태만이 아닌 id도 같이 있기해 구별이 편하도록 하기 위해 따로 -Object로 묶는다. //
+// id는 Math.random형태처럼 Date.now()로 ms를 주는 function을 이용한다. //
 
 const savedToDos = localStorage.getItem(TODOS_KEY);
 if(savedToDos !== null){
@@ -70,3 +78,5 @@ if(savedToDos !== null){
 // 이미 paintTodo에 newTodo들이 있으므로 forEach(paintTodo);로 정리가 가능하다. //
 // localStorage내에 있는 이전의 todo들은 default로 사라지므로, toDos를 const --> let으로 변경 후, //
 // toDos = parsedToDos로 지정해놓는다. 값이 추가되더라도 이전의 값들은 지워지지 않는다. //
+// 이렇게 parsedTodos.forEach하게 되면 각각의 array된 값들이 <li id="Date,now()">로 구분되어있는 각각의 값으로 나온다. //
+// paintTodo(newTodo)들은 browser상에는 innerText를 .text로 구별해서 문제없이 출력된다. //
