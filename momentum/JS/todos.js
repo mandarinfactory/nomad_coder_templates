@@ -1,7 +1,16 @@
 const todoForm = document.querySelector("#todo-form");
 const todoWrittenInput = todoForm.querySelector("input"); 
 const todoList = document.querySelector("#todo-list");
+const TODOS_KEY = "todos";
+// localStorage에서 toDos를 저장할때 같이 저장되는 keyname! //
+const toDos = [];
 
+function saveToDos() {
+    localStorage.setItem(TODOS_KEY, JSON.stringify(toDos));
+}
+// toDos를 통해 newTodo를 array화 하게 한다. //
+// localStorage에 array되어있는 newtoDo(toDos)를 저장한다. --> 이때, JSON.Stringify를 통해 string화 하게 한다. //
+// localStorage에도 array된 상태로 저장되므로 하나하나 개별로 출력이 가능하게끔 한다. //
 function deleteTodoButton(event) {
     const list = event.target.parentElement;
     list.remove();
@@ -29,7 +38,9 @@ function handleToDoSubmit(event) {
     event.preventDefault();
     const newTodo = todoWrittenInput.value; 
     todoWrittenInput.value = "";
+    toDos.push(newTodo);
     paintTodo(newTodo);
+    saveToDos();
 };
 todoForm.addEventListener("submit", handleToDoSubmit);
 // intro.js와 많이 비슷하다. 헷갈려서 하는 RECAP! //
@@ -38,4 +49,13 @@ todoForm.addEventListener("submit", handleToDoSubmit);
 // 3. 해당 input값은 newTodo로 element화 하고, todoWrittenInput값은 null("")이 된다. --> submit하고 form을 빈칸으로 만들어야하므로! //
 // 4. 빈칸 만들기전에 이전에 user가 submit한 값은 저장해야하므로 newTodo로 null만들기전에 저장해놓는다. //
 // 5. 따라서 console.log(newTodo, todoWrittenInput.value); 하게 되면 user가 submit한 값 + null된 값이 같이 출력된다. //
-// 6. todoWrittenInput이 후에 null이 되었다고 해서 newTodo까지 null이 되지 않는다. //\
+// 6. todoWrittenInput이 후에 null이 되었다고 해서 newTodo까지 null이 되지 않는다. //
+// newTodo를 toDos array에 push 시킨다(element를 추가시킨다. 비슷한걸로 call, apply를 쓴다.) //
+// toDos에 저장시키고, paintTodo를 통해 browser에 출력시키고, 바로 saveToDos function을 실행시킨다(localStorage에 저장하기 위해서). //
+
+const savedToDos = localStorage.getItem(TODOS_KEY);
+if(savedToDos !== null){
+    const parsedToDos = JSON.parse(savedToDos);
+    console.log(parsedToDos);
+    parsedToDos.forEach((item) => console.log("this is the turn of", item));
+}
