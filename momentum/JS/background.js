@@ -10,7 +10,7 @@ backgroundImage.src = `IMG/${randomImages}`;
 //backgroundImage = HTML에서는 <img></img>꼴로 나타났다고 생각하면 된다. --> <img src="IMG/randomImages"> //
 // randomImages로 인해 images내에 있는 5개의 images들이 무작위로 console에 출력된다. //
 
-document.body.appendChild(backgroundImage);
+document.body.prepend(backgroundImage);
 // appendChild는 현재 위치에서 새로운 위치로 이동시킨다고 보면 된다. //
 // 다시말해 backgroundImage를 body로 옮겨 browser로 출력(append)시킨다고 보면 된다. //
 // append는 맨뒤로, prepend는 맨위로 오게 해준다. //
