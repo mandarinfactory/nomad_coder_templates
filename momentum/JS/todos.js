@@ -23,6 +23,7 @@ function deleteTodoButton(event) {
 // 위 list와 아래 list는 서로 충돌하지 않는다. --> function이 하나 끝나게 되면 서로 영향을 받지 않는다. //
 // 지역변수(local Variable)은 {중괄호}로 나타내고, 한 지역내에서만 사용할 수 있는 변수이다. --> 그러한 변수는 그 지역내에서만 정의된다.(function같은) =/= 전역변수(global Variable) //
 // toDo는 toDos DB에 있는(localStorage에 저장되어있는) 요소 중 하나이다. //
+// list.remove()로는 browser에서만 지워지고 console창에는 여전히 살아있어서 따로 list.id값을 확인 할 수 있다. //
 // toDo.id와 list.id가 다른걸 남기고 싶다. --> 우리가 클릭한 list.id(newTodoObject로 된 id = Date.Now())와 다른 toDo.id는 남기고 싶다. //
 // toDo.id는 number고 list.id는 string이므로 parseInt로 변환시켜서 출력한다. //
 // toDo를 filter로 다른 array로 대체한 후 saveToDos()를 통해 다시 localStorage에 저장시켜준다. (이전것은 지워짐.) //
