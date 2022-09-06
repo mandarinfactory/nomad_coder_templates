@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+<!-- HTML PRACTICE -->
+
+
+<!DOCTYPE html> 
+<!-- HTML이라면 첫 문장으로 무조건 써야한다!(규칙) -->
 <html lang="en">
     <!-- Google등 검색엔진들에 도움을 주기 위해서 언어(lang)을 적어 놓는다.(website가 사용되는 언어를 알려줌.) -->
 <head>
@@ -19,15 +23,32 @@
 </head>
 <body>
     <h1>delicious donut@@!</h1>
-    <form>
-        <input required class=identity type="text" maxlength=10 placeholder="id!" />
-        <input required class=identity type="password" maxlength=10 placeholder="password!" />
-        <input required class=identity type="submit" value="enter!" />
-    </form>
-    <!-- form은 어떤 website에나 있다. input은 website안에 칸을 넣어준다. -->
-    <!-- input의 type은 text말고 많다.(color, email, image, password등) -->
-    <!-- placeholder(input의 또다른 attribute)는 칸내에 써있는 내용이다. -->
-    <!-- required를 넣으면 빈칸일경우 알림이 팝업으로 보이게 한다. -->
-    <!-- 정말 여러가지 input attribute가 있으니 MdN으로 확인해보자! -->
+        <form>
+            <label for="profile">Profile Photo</label>
+            <input id="profile" type="file" accept=".png,.jpg">
+            <!-- 위에 label과 input은 연결되어있고 따라서 for과 id는 같은 tagname을 가져야한다. -->
+            <!-- id는 고유식별자로써 element당 하나의 id만 가질 수 있는게 id의 규칙이다. -->
+            <div>
+                <input required class=identity type="text" maxlength=10 placeholder="id!" />
+            </div>
+            <!-- div === box -->
+            <!-- div를 이용하면 옆으로 나열되는 element들을 아래로 나열시킬수 있다. -->
+            <div>
+                <input required class=identity type="password" maxlength=10 placeholder="password!" />
+            </div>
+            <div>
+                <input required class=identity type="submit" value="enter!" />
+            </div>
+        </form>
+        <!-- form은 어떤 website에나 있다. input은 website안에 칸을 넣어준다. -->
+        <!-- input의 type은 text말고 많다.(color, email, image, password등) -->
+        <!-- placeholder(input의 또다른 attribute)는 칸내에 써있는 내용이다. -->
+        <!-- required를 넣으면 빈칸일경우 알림이 팝업으로 보이게 한다. -->
+        <!-- 정말 여러가지 input attribute가 있으니 MdN으로 확인해보자! -->  
+    <header>
+
+    </header>
+    <!-- replacement of div === header,main,footer등등(semantic tagnames) -->
 </body>
 </html>
+<!-- div,span id를 지양하고 최대한 semantic code를 쓰려고 노력하자. => 좀 더 보기, 이해하기가 더 편하다. -->
