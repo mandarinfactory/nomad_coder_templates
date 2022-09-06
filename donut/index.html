@@ -20,12 +20,14 @@
 <body>
     <h1>delicious donut@@!</h1>
     <form>
-        <input class=identity type="text" placeholder="ID!" />
-        <input class=identity type="password" placeholder="password!" />
-        <input class=identity type="submit" value="enter!" />
+        <input required class=identity type="text" maxlength=10 placeholder="id!" />
+        <input required class=identity type="password" maxlength=10 placeholder="password!" />
+        <input required class=identity type="submit" value="enter!" />
     </form>
     <!-- form은 어떤 website에나 있다. input은 website안에 칸을 넣어준다. -->
     <!-- input의 type은 text말고 많다.(color, email, image, password등) -->
     <!-- placeholder(input의 또다른 attribute)는 칸내에 써있는 내용이다. -->
+    <!-- required를 넣으면 빈칸일경우 알림이 팝업으로 보이게 한다. -->
+    <!-- 정말 여러가지 input attribute가 있으니 MdN으로 확인해보자! -->
 </body>
 </html>
