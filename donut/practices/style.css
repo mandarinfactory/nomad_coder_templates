@@ -6,6 +6,7 @@ html{
     background-color: indianred
 }
 body {
+    height: 1000vh;
     margin: 20px;
     padding: 20px 10px;
     background-color: white;
@@ -19,9 +20,6 @@ h1 {
     text-decoration: underline;
     font-weight: 700;
     text-align: center;
-}
-div {
-    border: 4px solid black;
 }
 /* border은 box의 경게,테두리를 말한다. --> property가 많은데 아마 soild외에는 별로여서 잘 안씀 */
 /* border의 style을 바꿀때 많이 쓰인다. --> inline, block 상관없이 다 적용된다. */
@@ -90,14 +88,30 @@ div {
     margin: 10px;
     padding: 5px 10px;
     border-radius: 5px;
-    font-weight: 500;
+    font-weight: 500; 
     font-size: 18px;
 }
 .for_display {
-    width: 50px;
-    height: 50px;
-    display: inline-block;
+    margin-top: 100px;
+    width: 400px;
+    height: 400px;
+    display: flex;
+    text-align: center;
+}
+.nothing_box {
+    width:100px;
+    height: 100px;
+    background-color: pink;
+}
+.another {
+    background-color: cornflowerblue;
 }
 /* inline-block은 inline인데 height, width를 가지고 바로옆으로도 올 수 있다. */
 /* 하지만 잘 쓰이지 않음 --> default로 각 element사이에 간격이 생기고, 이 간격이 일정하지 않다.(element의 크기에 따라 간격도 변함) */
 /* 따라서 responsive design이 되기 어려워 즉각적으로 이용하기 매우 좋지 않아서 안쓰인다. */
+/* inline-block을 대체하려고 만든게 flexbox(flex)이다. --> 어디든 어떻게 하든 맘대로 넣을 수 있다. */
+/* 1. flex를 쓸때 child element는 어떤것도 적지 않고 parent element에만 적는다. (body>div면 body가 flex cotainer로써 여기에만 적어야한다.) */
+/* 2. flex는 main axis, cross axis를 기준으로 하고, 각각 default값은 horizontal, vertical이다. 두 값은 변경 가능하다. */
+/* flex로는 다양한 속성을 바꿀수 있고 대표적으로 justify-content(main axis기준), align-items(cross axis기준)으로 볼 수 있다. */
+/* align-item을 body에 쓸 경우, body는 내부 div크기에 맞게 되어있으므로 따로 height를 크게 해야 align-item을 쓸 수 있다. */
+/* 다시 말해, justify-content는 수평에서 움직이고, align-item은 수직으로 움직인다. --> 이 설정은 변경 가능하다는 점을 다시 한번 기억하자. */
