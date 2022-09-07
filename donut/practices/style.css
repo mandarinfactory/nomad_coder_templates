@@ -1,6 +1,7 @@
 /* CSS PRACTICE by mandarinfactory */
 
 
+/* *{  }은 모든것에 적용되는것을 뜻한다. */
 html{
     background-color: indianred
 }
@@ -14,17 +15,23 @@ body {
     font-family: 'Ubuntu', sans-serif;
 }
 h1 {
-    color: indianred;
     font-size: 40px;
     text-decoration: underline;
     font-weight: 700;
     text-align: center;
 }
+div {
+    border: 4px solid black;
+}
+/* border은 box의 경게,테두리를 말한다. --> property가 많은데 아마 soild외에는 별로여서 잘 안씀 */
+/* border의 style을 바꿀때 많이 쓰인다. --> inline, block 상관없이 다 적용된다. */
+/* inline에서 height, width는 적용되지 않는다!!! --> inline내에서 padding과 margin 또한 가능하다. */
+/* 단, margin은 상하는 안되고 좌우만 가능하다. (height, width를 inline은 가지지 않으므로!) */
 #first {
     padding: 10px;
     height: 200px;
     width: 200px;
-    background-color: antiquewhite;
+    background-color: #faebd7;
 }
 #second {
     margin-left: 10px;
@@ -48,18 +55,11 @@ h1 {
     background-color: orange;
 }
 #fifth {
-    margin-left: 60px;
+    margin-left: 80px;
     padding: 10px;
     height: 200px;
     width: 200px;
     background-color: orangered;
-}
-#sixth {
-    margin-left: 60px;
-    padding: 10px;
-    height: 200px;
-    width: 200px;
-    background-color: maroon;
 }
 /* display로 block, inline을 재설정 할 수 있다. */
 /* inline으로 설정시, inline으로 된 element는 height와 width를 가질수 없다. */
@@ -69,8 +69,35 @@ h1 {
 /* padding은 box의 경계로부터 안쪽에 있는 공간을 말한다. margin : 타인과 나와의 거리, padding : 나의 크기(키울수록 살크업이 된다고 생각하면 됨) */
 /* div로 묶은게 padding값이 똑같은데 옆으로 밀린건 하위div로 묶여서 그렇다. */
 /* 별개의 div로 하면 div는 block이므로 아래로 정렬된다. */
-span {
+/* 또한, fifth가 fourth를 먹었는게 그건 fifth는 first랑 같이 기준에 맞게 있어서 그렇다.(second-fourth는 first의 하위div들이므로) */
+.donut {
+    margin: 10px;
+    padding: 20px;
     text-align: center;
-    background-color: pink;
+    background-color: indianred;
+    font-size: 40px;
+    font-weight: 700;
     display: block;
 }
+.firebrick {
+    background-color: firebrick;
+    color: white;
+}
+.almond {
+    background-color: blanchedalmond;
+}
+.btn {
+    margin: 10px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: 500;
+    font-size: 18px;
+}
+.for_display {
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+}
+/* inline-block은 inline인데 height, width를 가지고 바로옆으로도 올 수 있다. */
+/* 하지만 잘 쓰이지 않음 --> default로 각 element사이에 간격이 생기고, 이 간격이 일정하지 않다.(element의 크기에 따라 간격도 변함) */
+/* 따라서 responsive design이 되기 어려워 즉각적으로 이용하기 매우 좋지 않아서 안쓰인다. */
