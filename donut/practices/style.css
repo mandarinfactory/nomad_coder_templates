@@ -12,6 +12,9 @@ body {
     background-color: white;
     font-family: 'Ubuntu', sans-serif;
 }
+input {
+    font-family: 'Ubuntu', sans-serif;
+}
 .identity {
     font-family: 'Ubuntu', sans-serif;
 }
@@ -99,6 +102,13 @@ h1 {
     text-align: center;
 }
 .nothing_box {
+    display: flex;
+    /* body내 div(.nothing_box)여도 그div내 child element가 있다면, div또한 flex container가 될 수 있다. */
+    /* 이때 .nothing_box의 flex가 없어지면 grandparent에 flex가 있다고 해도 숫자는 움직이지 않는다. --> 직접적인 parent display가 flexbox가 아니므로! */
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    font-weight: 500;
     width:100px;
     height: 100px;
     background-color: pink;
@@ -115,3 +125,72 @@ h1 {
 /* flex로는 다양한 속성을 바꿀수 있고 대표적으로 justify-content(main axis기준), align-items(cross axis기준)으로 볼 수 있다. */
 /* align-item을 body에 쓸 경우, body는 내부 div크기에 맞게 되어있으므로 따로 height를 크게 해야 align-item을 쓸 수 있다. */
 /* 다시 말해, justify-content는 수평에서 움직이고, align-item은 수직으로 움직인다. --> 이 설정은 변경 가능하다는 점을 다시 한번 기억하자. */
+/* flex-direction으로 방향을 바꿀수 있다.--> default는 row고, column으로 변경 가능하다. */
+#for_fixed {
+    height: 100px;
+    width: 100px;
+    background-color: aquamarine;
+    display: fixed;
+}
+/* fixed --> 말그대로 element가 화면에 고정되어있는 상태로 만들어준다. =/= flex와는 반대라고 생각하면 된다. */
+/* fixed가 되면 해당 element는 layout상에서 그려진 위치에 고정되게 된다. + 다른 element와 겹치게 되면 fixed된 element가 가장 위로 올라오게 된다. */
+#different {
+    height: 200px;
+    width: 200px;
+    background-color: chartreuse;
+}
+.position {
+    height: 250px;
+    width: 250px;
+    background-color: blueviolet;
+    position: relative;
+}
+.relative {
+    position: relative;
+    top: -10px;
+    left: -10px;
+    height: 100px;
+    width: 100px;
+    background-color: black;
+}
+/* position은 browser상에서 element를 배치하는 방법을 지정하는걸 말한다. --> static은 기본값 그대로 인식하는걸 말한다.(default값) */
+/* relative는 element가 처음 위치한 곳을 기준으로 수정할수 있도록 해준다.(top,bottom,left,right를 이용해서!) --> 처음 놓인 자리에서 상하좌우로 움직이게 해준다. */
+/* absolute는 가장 가까운 relative parent element를 기준으로 이동시켜준다. --> 대부분 body를 기준으로 하게 된다.(직접적인 parent element에 relative가 없는경우가 많으니까) */
+/* 실제로 대부분 cotaining block을 기준으로 한다고 나와있다. --> 이걸 body로 생각하면 쉽다. */
+/* absolute된 element가 body를 기준으로 하는걸 막기 위해선 해당 element의 parent element를 relative position으로 바꿔주면 된다. */ 
+span{
+    background-color: crimson;
+    padding:3px;
+    border-radius: 5px;
+}
+span:nth-child(even) {
+    background-color: aqua;
+}
+div p span {
+    background-color: bisque;
+}
+div > span {
+    text-decoration: underline;
+}
+/* pseudo selectors는 추가하는 키워드로, 선택한 요소가 특별한 상태여야 만족할 수 있다. */
+/* first-child,last-child,nth-child()등으로 하위element를 지칭해서 따로 class나 id로 변경하지 않더라도 CSS내에서 변경할 수 있다. */
+/* div > span이라는 표시를 통해 div의 직접적인 child element의 span만(p하위에 있는 span제외) 인식시키도록 할 수 있다. */
+/* p + span으로 표시하면 p 하위에 있는 span이 아닌 p 다음으로 오는 span으로 인식한다 */
+/* p ~ span으로 표시하면 span이 같은 형제element인데 바로 뒤에 오지 않을때 쓸 수 있는게 ~ 표시이다. */
+
+input {
+    border: 3px solid wheat;
+    border-radius: 3px;
+}
+input:required {
+    border-color: firebrick;
+}
+input[type="password"] {
+    background-color: aquamarine;
+}
+input[placeholder~="name"] {
+    background-color: pink;
+}
+/* input내에서도 border을 이용해서 테두리를 꾸밀수 있다. (required가 없는element는 optional로 쓰인다.) */
+/* attribute를 통해 어떤것이든 선택할 수 있게 해준다. --> tagname[]{}꼴로 나타낼수 있다. */
+/* '~'뜻은 ~을 포함하고 있다는 뜻이다. --> 'name'을 포함하고 있다. */
