@@ -191,6 +191,12 @@ input[type="password"] {
 input[placeholder~="name"] {
     background-color: pink;
 }
+button {
+    font-family: 'Ubuntu', sans-serif;
+}
+button:hover {
+    background-color: tomato;
+}
 /* input내에서도 border을 이용해서 테두리를 꾸밀수 있다. (required가 없는element는 optional로 쓰인다.) */
 /* attribute를 통해 어떤것이든 선택할 수 있게 해준다. --> tagname[]{}꼴로 나타낼수 있다. */
 /* '~'뜻은 ~을 포함하고 있다는 뜻이다. --> 'name'을 포함하고 있다. */
