@@ -4,24 +4,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <title>Welcome to donnnut!</title>
 </head>
 <body>
-    <div id="status-bar">
+    <div class="status-bar">
         <div class="status-bar__column">
+        <!-- 'status-bar__column'은 BEM(Block,Element(__),Modifier(--))이라고 불리는 항목이다. -->
+        <!-- BEM은 class로만 이름짓고, 어떤목적인가에 따라 이름을 짓는다. -->
+        <!-- 큰 항목은 block, 하위/작은 항목은 element, 항목의 추가설정들은 modifier로 이름을 적어-->
+        <!-- 'status_bar'는 Block이고, 'column'은 Element이다. -->
             <span>No Service</span>
-            <!-- To do : Wifi-Icon -->
+            <i class="fa-solid fa-wifi"></i>
         </div>
         <div class="status-bar__column">
-            <span>20:09</span>
-            <!-- If I could, use JS to make REAL time! -->
+            <span class="status-bar__column__clock"></span>
         </div>
         <div class="status-bar__column">
             <span>91%</span>
-            <!-- To do : battery-Icon -->
-            <!-- lightening Icon -->
+            <i class="fa-solid fa-battery-full"></i>
+            <i class="fa-solid fa-bolt"></i>
         </div>
     </div>
     <!-- status-bar는 browser 가장 위에 있는 부분(데이터, 시간, 베터리양 등을 표시해놓음) -->
+    <script src="clock.js"></script>
+    <script src="https://kit.fontawesome.com/d44beb033c.js" crossorigin="anonymous"></script>
 </body>
 </html>
