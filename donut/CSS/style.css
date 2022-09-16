@@ -1,0 +1,48 @@
+@import "reset.css";
+@import "status-bar.css";
+
+body {
+    font-family: 'Ubuntu', sans-serif;
+}
+input {
+    font-family: 'Ubuntu', sans-serif;
+}
+button {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.welcome-header {
+    display: flex;
+    margin: 90px 0px;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+}
+/* header__text가 width 60%로 왼쪽으로만 치우쳐 있기 때문에 display:flex를 사용한다. */
+/* direction을 column(vertical)으로 바꿔서 수직축이 main axis로 변경 */
+/* 변경하게 되면 justify-content는 main기준(수직), align-items는 cross기준(수평)이므로, align-items로 center를 맞춰준다. --> default값인 row라면, justify-contents가 수평! */
+.welcome-header__title {
+    margin-bottom: 30px;
+    font-size: 30px;
+    font-weight: 700;
+}
+.welcome-header__text {
+    width: 60%;
+    opacity: 0.7;
+    font-size: 18px;
+}
+#login-form {
+    display: flex;
+    flex-direction: column;
+    margin: 0px 30px;
+}
+#login-form input {
+    border: none;
+    padding: 10px 0px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+#login-form input::placeholder {
+    opacity: 0.5;
+}
