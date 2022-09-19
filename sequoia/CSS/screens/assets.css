@@ -1,0 +1,20 @@
+.assets-header {
+    margin: 15px;
+    border-radius: 20px;
+    background-color: rgba(0,0,0,0.1);
+    padding: 20px;
+    font-size: 25px;
+    font-weight: 600;
+}
+.fa-canadian-maple-leaf {
+    color: var(--sequoia-color);
+}
+.assets-header__list {
+    padding-top: 20px;
+    height: 50vh;
+    width: 80vw;
+}
+img {
+    width: 10%;
+    height: 10%;
+}
