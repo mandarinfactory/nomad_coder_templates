@@ -9,12 +9,16 @@
 .fa-canadian-maple-leaf {
     color: var(--sequoia-color);
 }
-.assets-header__list {
+.assets-header__list_01 {
+    display: flex;
+    flex-direction: column;
     padding-top: 20px;
     height: 50vh;
     width: 80vw;
+
 }
 img {
     width: 10%;
     height: 10%;
+    border-radius: 25px;
 }
