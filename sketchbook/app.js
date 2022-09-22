@@ -91,12 +91,19 @@ function onEraserBtnClick () {
 }
 function onFileChange (event) {
     const file = event.target.files[0];
+    // event된 files의 첫번째 file을 const화 한다. //
     const url = URL.createObjectURL(file);
+    // 해당 file의 URL을 알기위해 createobjectURL로 URL을 가져온다. //
     const image = new Image();
+    // HTML의 image를 만드는법은 new Image(width, height)로 만들 수 있다. //
     image.src = url;
+    // image의 src는 url로 함으로써 user가 browser에 가져온 image를 쓸 수 있게 해준다. //
     image.onload = function () {
         context.drawImage(image, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+        // addEventListener를 쓰는 대신에 element.on-을 붙여서도 쓸 수 있다. //
+        // drawImage(해당image, x좌표, y좌표, width, height)는 canvas에 image를 그려준다. //
         fileInput.value = null;
+        // 이미 drawImage가 있으므로 user가 다른 image를 원할수 있으니 fileInput을 null상태로 만들어 놓는다. //
     };
 
 }
