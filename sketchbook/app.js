@@ -1,4 +1,5 @@
 const sketchbook = document.querySelector("canvas");
+const fileInput = document.querySelector("#file");
 const modeBtn = document.querySelector("#mode-btn");
 const destroyBtn = document.querySelector("#destroy-btn");
 const eraserBtn = document.querySelector("#eraser-btn");
@@ -88,6 +89,17 @@ function onEraserBtnClick () {
     modeBtn.innerText = "Fill";
     // Eraser를 활성화하려면 일단 fill모드가 아닌 draw모드여야 하므로 fillNow = false + innerText = "Fill"을 통해 작업을 해놔야한다. //
 }
+function onFileChange (event) {
+    const file = event.target.files[0];
+    const url = URL.createObjectURL(file);
+    const image = new Image();
+    image.src = url;
+    image.onload = function () {
+        context.drawImage(image, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+        fileInput.value = null;
+    };
+
+}
     
 sketchbook.addEventListener("mousemove", onMovePaint);
 sketchbook.addEventListener("mousedown", onMouseDown);
@@ -107,3 +119,5 @@ colorOption.forEach(color => color.addEventListener("click", onColorClick));
 modeBtn.addEventListener("click", onModeBtnClick);
 destroyBtn.addEventListener("click", onDestroyBtnClick);
 eraserBtn.addEventListener("click", onEraserBtnClick);
+
+fileInput.addEventListener("change", onFileChange);
