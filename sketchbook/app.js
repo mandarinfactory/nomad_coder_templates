@@ -66,9 +66,11 @@ function onModeBtnClick () {
     if(fillNow){
         fillNow = false;
         modeBtn.innerText = "Fill";
+        // fill모드에서 user가 click을 하면 fill모드를 멈추고(false) draw모드로 변하고 modeBtn은 "Fill"로 변한다. --> 그리기(draw)모드 //
     } else {
         fillNow = true;
         modeBtn.innerText = "Draw";
+        // 반대로 draw모드에서 click을 하면 draw모드를 멈추고(false) fill모드로 변하고 modeBtn은 "draw"로 변하게 된다. --> 채우기(fill)모드 //
     }
 }
 function onSketchbookClick () {
@@ -84,6 +86,7 @@ function onEraserBtnClick () {
     context.strokeStyle = "white";
     fillNow = false;
     modeBtn.innerText = "Fill";
+    // Eraser를 활성화하려면 일단 fill모드가 아닌 draw모드여야 하므로 fillNow = false + innerText = "Fill"을 통해 작업을 해놔야한다. //
 }
     
 sketchbook.addEventListener("mousemove", onMovePaint);
