@@ -14,3 +14,9 @@ canvas {
     height: 50px;
     cursor: pointer;
 }
+input {
+    font-family: 'Ubuntu', sans-serif;
+}
+button {
+    font-family: 'Ubuntu', sans-serif;
+}

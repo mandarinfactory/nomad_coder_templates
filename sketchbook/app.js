@@ -1,5 +1,6 @@
 const sketchbook = document.querySelector("canvas");
 const fileInput = document.querySelector("#file");
+const textInput = document.querySelector("#text");
 const modeBtn = document.querySelector("#mode-btn");
 const destroyBtn = document.querySelector("#destroy-btn");
 const eraserBtn = document.querySelector("#eraser-btn");
@@ -17,6 +18,8 @@ sketchbook.width = CANVAS_WIDTH;
 sketchbook.height = CANVAS_HEIGHT;
 // 그리기를 시작할때 width와 height는 CSS가 아닌 JS에서만 수정하도록 한다! --> image의 질을 위해서! //
 context.lineWidth = lineWidth.value;
+context.lineCap = "round";
+// context를 보다 동그랗게(round) 만들어준다. --> butt(남김없이 딱 끊김),round,square이 있다. //
 let paintNow = false;
 // paintNow를 false로 해서 바로 그릴수 없게 한다. --> cursor를 눌러야 그림을 그릴수 있게끔! //
 let fillNow = false;
@@ -101,13 +104,26 @@ function onFileChange (event) {
     image.onload = function () {
         context.drawImage(image, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
         // addEventListener를 쓰는 대신에 element.on-을 붙여서도 쓸 수 있다. //
-        // drawImage(해당image, x좌표, y좌표, width, height)는 canvas에 image를 그려준다. //
+        // drawImage(해당image, x좌표, y좌표, width, height)는 sketchbook에 image를 그려준다. //
         fileInput.value = null;
         // 이미 drawImage가 있으므로 user가 다른 image를 원할수 있으니 fileInput을 null상태로 만들어 놓는다. //
     };
-
 }
-    
+
+function onDoubleClick (event) {
+    context.save();
+    //save --> 현재상태, 색상, 스타일 등 모든 것을 저장해준다. //
+    const text = textInput.value;
+    context.lineWidth = 5;
+    // text가 context굵기가 굵어서 잘 안보여서 lineWidth = 1로 해놓고, 이전에 save되어있는걸 다시 restore로 되돌려 놓는다. //
+    context.font = "50px Ubuntu";
+    context.strokeText(text, event.offsetX, event.offsetY);  
+    //offsetX, Y는 mouse가 클릭한 sketchbook의 내부 좌표이다. // 
+    context.restore();
+    // 수정을 완료하면 restore을 써주면 된다. --> 기존의 저장한 checkpoint로 돌아간다. //
+}
+
+sketchbook.addEventListener("dblclick", onDoubleClick);
 sketchbook.addEventListener("mousemove", onMovePaint);
 sketchbook.addEventListener("mousedown", onMouseDown);
 sketchbook.addEventListener("mouseup", onMouseUp);
