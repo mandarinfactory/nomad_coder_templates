@@ -1,9 +1,12 @@
 const sketchbook = document.querySelector("canvas");
 const fileInput = document.querySelector("#file");
 const textInput = document.querySelector("#text");
+
 const modeBtn = document.querySelector("#mode-btn");
 const destroyBtn = document.querySelector("#destroy-btn");
 const eraserBtn = document.querySelector("#eraser-btn");
+const saveBtn = document.querySelector("#save");
+
 const colorOption = Array.from(document.querySelectorAll(".color-option"));
 // querySelectorAll로 가져온건 HTMLCollection이므로 Array.from으로 Array로 묶어준다. //
 // array.from --> element들을 복사해 새로운 array객체로 만들어준다. //
@@ -122,6 +125,19 @@ function onDoubleClick (event) {
     context.restore();
     // 수정을 완료하면 restore을 써주면 된다. --> 기존의 저장한 checkpoint로 돌아간다. //
 }
+function onSaveBtnClick () {
+    const url = sketchbook.toDataURL();
+    // 현재 sketchbook에 있는 그림을 URL을 생성하게 해준다. //
+    const a = document.createElement("a");
+    // a tag를 생성해 가짜 링크를 만든 후 //
+    a.href = url
+    // link의 href는 그림의 URL로 설정해주고 //
+    a.download = "myDrawing.jpeg";
+    // file명 myDrawing으로 download(save)시켜준다. //
+    a.click();
+}
+
+
 
 sketchbook.addEventListener("dblclick", onDoubleClick);
 sketchbook.addEventListener("mousemove", onMovePaint);
@@ -142,5 +158,6 @@ colorOption.forEach(color => color.addEventListener("click", onColorClick));
 modeBtn.addEventListener("click", onModeBtnClick);
 destroyBtn.addEventListener("click", onDestroyBtnClick);
 eraserBtn.addEventListener("click", onEraserBtnClick);
+saveBtn.addEventListener("click", onSaveBtnClick);
 
 fileInput.addEventListener("change", onFileChange);
