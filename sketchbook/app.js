@@ -1,12 +1,13 @@
 const sketchbook = document.querySelector("canvas");
+// for Inputs //
 const fileInput = document.querySelector("#file");
 const textInput = document.querySelector("#text");
-
+// for Buttons //
 const modeBtn = document.querySelector("#mode-btn");
 const destroyBtn = document.querySelector("#destroy-btn");
 const eraserBtn = document.querySelector("#eraser-btn");
 const saveBtn = document.querySelector("#save");
-
+// and for the others //
 const colorOption = Array.from(document.querySelectorAll(".color-option"));
 // querySelectorAll로 가져온건 HTMLCollection이므로 Array.from으로 Array로 묶어준다. //
 // array.from --> element들을 복사해 새로운 array객체로 만들어준다. //
@@ -102,6 +103,7 @@ function onFileChange (event) {
     // 해당 file의 URL을 알기위해 createobjectURL로 URL을 가져온다. //
     const image = new Image();
     // HTML의 image를 만드는법은 new Image(width, height)로 만들 수 있다. //
+    // document.createElement("img")랑 같은 역할을 한다고 보면 된다. //
     image.src = url;
     // image의 src는 url로 함으로써 user가 browser에 가져온 image를 쓸 수 있게 해준다. //
     image.onload = function () {
@@ -127,7 +129,7 @@ function onDoubleClick (event) {
 }
 function onSaveBtnClick () {
     const url = sketchbook.toDataURL();
-    // 현재 sketchbook에 있는 그림을 URL을 생성하게 해준다. //
+    // 현재 sketchbook에 있는 그림의 URL을 생성하게 해준다. //
     const a = document.createElement("a");
     // a tag를 생성해 가짜 링크를 만든 후 //
     a.href = url
