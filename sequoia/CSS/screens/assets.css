@@ -1,7 +1,41 @@
+.img_sequioa img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-top: 15px;
+    margin-left: 15px;
+}
+.img_sequioa span {
+    margin-left: 8px;
+    font-weight: 600;
+    font-size: 40px;
+}
+.assets-icons_end{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.assets-icons_end i {
+    margin-top: 15px;
+    padding: 10px 20px;
+}
 .assets-header {
     margin: 15px;
     border-radius: 20px;
-    background-color: rgba(0,0,0,0.1);
+    background-color: rgba(201, 201, 201, 0.1);
+    padding: 20px;
+    font-size: 25px;
+    font-weight: 600;
+}
+.assets-header__title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.assets-accounts {
+    margin: 15px;
+    border-radius: 20px;
+    background-color: rgba(201, 201, 201, 0.1);
     padding: 20px;
     font-size: 25px;
     font-weight: 600;
@@ -9,13 +43,10 @@
 .fa-canadian-maple-leaf {
     color: var(--sequoia-color);
 }
-.assets-header__list_01 {
+.assets-accounts div[class*='list'] {
     display: flex;
     flex-direction: column;
     padding-top: 20px;
-    height: 50vh;
-    width: 80vw;
-
 }
 img {
     width: 10%;
